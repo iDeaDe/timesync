@@ -4,8 +4,6 @@
 use Dotenv\Dotenv;
 use Ideade\Timesync\TimeSync;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Console\Output\OutputInterface;
 
 if (PHP_MAJOR_VERSION < 8 && PHP_MINOR_VERSION < 2) {
     echo 'PHP >= 8.2 required' . PHP_EOL;
@@ -32,5 +30,5 @@ $application = (new TimeSync('sync'))
     ->addOption('start', null, InputOption::VALUE_REQUIRED, 'Start date', 'today')
     ->addOption('end', null, InputOption::VALUE_REQUIRED, 'End date', 'today')
     ->addOption('timezone', null, InputOption::VALUE_REQUIRED, 'Timezone', 'Asia/Almaty')
-    ->run(null, new ConsoleOutput(OutputInterface::VERBOSITY_NORMAL, true));
+    ->run();
 
