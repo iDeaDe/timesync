@@ -1,0 +1,6 @@
+vendor
+.idea
+
+.env
+timesync.phar
+timesync.log
