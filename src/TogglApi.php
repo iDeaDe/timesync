@@ -5,8 +5,6 @@ namespace Ideade\Timesync;
 use DateTimeImmutable;
 use DateTimeInterface;
 use Ideade\Timesync\Entity\TogglTimeEntry;
-use Ideade\Timesync\Util\Env;
-use Ideade\Timesync\Util\MessageToString;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
