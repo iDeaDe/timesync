@@ -35,10 +35,12 @@ foreach (['vendor', 'src'] as $directory) {
 $mainFilePath = __DIR__ . '/run.php';
 $phar->addFromString($mainFilePath, php_strip_whitespace($mainFilePath));
 
+$requireMainFilePath = 'phar://' . OUT_FILENAME . $mainFilePath;
+
 $mainFile = <<<PHP
 #!/usr/bin/php
 <?php
-require '$mainFilePath';
+require '$requireMainFilePath';
 __HALT_COMPILER();
 ?>
 PHP;
