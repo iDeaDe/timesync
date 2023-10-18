@@ -17,8 +17,7 @@ final readonly class TogglApi
         private ClientInterface         $client,
         private RequestFactoryInterface $requestFactory,
         private SerializerInterface     $serializer,
-        private string                  $login,
-        private string                  $password,
+        private string                  $token,
     ) {}
 
     /**
@@ -55,6 +54,6 @@ final readonly class TogglApi
 
     private function getAuthorizationToken(): string
     {
-        return base64_encode(sprintf('%s:%s', $this->login, $this->password));
+        return base64_encode(sprintf('%s:api_token', $this->token));
     }
 }

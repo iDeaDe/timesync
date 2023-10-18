@@ -59,7 +59,7 @@ final class TimeSync extends SingleCommandApplication
      */
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
-        Env::checkDefined(['TOGGL_LOGIN', 'TOGGL_PASSWORD', 'YOUTRACK_URL', 'YOUTRACK_TOKEN']);
+        Env::checkDefined(['TOGGL_TOKEN', 'YOUTRACK_URL', 'YOUTRACK_TOKEN']);
 
         $this->isDebug = $output->isDebug();
         $this->timezone = new DateTimeZone($input->getOption('timezone'));
@@ -84,8 +84,7 @@ final class TimeSync extends SingleCommandApplication
             $client,
             $httpFactory,
             $serializer,
-            Env::get('TOGGL_LOGIN'),
-            Env::get('TOGGL_PASSWORD')
+            Env::get('TOGGL_TOKEN')
         );
 
         $this->youtrack = new YoutrackApi(

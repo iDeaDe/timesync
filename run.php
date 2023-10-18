@@ -25,7 +25,7 @@ if (class_exists('Dotenv\Dotenv')) {
 }
 
 $application = (new TimeSync('sync'))
-    ->setLogger(new \Ideade\Timesync\Util\FileLogger('./timesync.log'))
+    ->setLogger(new \Ideade\Timesync\Util\FileLogger(__DIR__ . '/timesync' . time() . '.log'))
     ->setVersion('1.0.0')
     ->addOption('start', null, InputOption::VALUE_REQUIRED, 'Start date', 'today')
     ->addOption('end', null, InputOption::VALUE_REQUIRED, 'End date', 'today')

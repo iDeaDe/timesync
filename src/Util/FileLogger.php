@@ -15,6 +15,10 @@ class FileLogger extends AbstractLogger
     public function __construct(string $location)
     {
         $this->logFile = fopen($location, 'ab+');
+
+        if ($this->logFile === false) {
+            throw new \RuntimeException('Failed to open file stream for log file');
+        }
     }
 
     public function __destruct()
